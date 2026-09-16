@@ -10,15 +10,28 @@
         "context": ".",
         "dockerfile": "Dockerfile"
       },
-      "domains": [
+      "deploy": {
+        "replicas": 1
+      },
+      "domains": [],
+      "ports": [
         {
-          "name": "3einstalacoes.com.br",
-          "www": false
-        },
-        {
-          "name": "www.3einstalacoes.com.br"
+          "published": 8080,
+          "target": 80,
+          "protocol": "tcp"
         }
-      ]
+      ],
+      "env": "",
+      "mounts": [],
+      "healthCheck": {
+        "enabled": true,
+        "path": "/",
+        "port": 80,
+        "interval": 30,
+        "timeout": 10,
+        "retries": 3,
+        "startPeriod": 10
+      }
     }
   ]
 }
