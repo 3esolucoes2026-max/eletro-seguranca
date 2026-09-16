@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.appswithlove.com/easypanel/5.4/schema.json",
+  "name": "3e-instalacoes-eletrica",
+  "description": "Site institucional 3E - Instalação e Manutenção Elétrica",
+  "services": [
+    {
+      "name": "3e-instalacoes",
+      "image": "nginx:1.27-alpine",
+      "build": {
+        "context": ".",
+        "dockerfile": "Dockerfile"
+      },
+      "domains": [
+        {
+          "name": "3einstalacoes.com.br",
+          "www": false
+        },
+        {
+          "name": "www.3einstalacoes.com.br"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+node_modules
+.git
+.gitignore
+.dockerignore
+Dockerfile
+nginx.conf
+easypanel.json
+README-DEPLOY.md
+.htaccess
+*.tar.gz
+.DS_Store
