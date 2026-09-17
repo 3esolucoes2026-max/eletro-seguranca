@@ -1,0 +1,3 @@
+# Desabilita auto-detecção de Nixpacks - força uso do Dockerfile
+[phases.setup]
+nixPkgs = []
