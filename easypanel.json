@@ -13,7 +13,20 @@
       "deploy": {
         "replicas": 1
       },
-      "domains": [],
+      "domains": [
+        {
+          "name": "3emanutencaoeletrica.com.br",
+          "port": 80,
+          "ssl": true,
+          "letsEncrypt": true
+        },
+        {
+          "name": "www.3emanutencaoeletrica.com.br",
+          "port": 80,
+          "ssl": true,
+          "letsEncrypt": true
+        }
+      ],
       "ports": [
         {
           "published": 8080,

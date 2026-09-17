@@ -15,33 +15,60 @@ Este site é **estático** (HTML/CSS/JS). Publicação no **EasyPanel** usando N
 
 ## 1️⃣ ETAPA 1 — Registrar o domínio
 
-Sugestões de domínio disponíveis para registro:
+O domínio escolhido foi **`3eeletrotecnica.com.br`**.
 
-| Domínio sugerido | Onde registrar |
-|------------------|----------------|
-| `3einstalacoes.com.br` | [registro.br](https://registro.br) (~R$ 40/ano) |
-| `3eeletrica.com.br` | registro.br |
-| `3einstalacaoeletrica.com.br` | registro.br |
-| `3eseguranca.com.br` | registro.br |
+| Domínio | Status | Onde registrar |
+|---------|--------|----------------|
+| `3eeletrotecnica.com.br` | ✅ **Disponível** — R$ 40,00/ano | [registro.br](https://registro.br/novo-dominio/?fqdn=3eeletrotecnica.com.br) |
 
-> ⚠️ **O `easypanel.json` já está configurado para `3einstalacoes.com.br`.**
-> Se registrar outro domínio, atualize estes 2 arquivos:
-> - `easypanel.json` (bloco `domains`)
-> - `nginx.conf` (linha `server_name`)
+### ✅ Como registrar:
+1. Acesse [registro.br](https://registro.br)
+2. Faça login (ou crie conta)
+3. O domínio já está na busca: **`3eeletrotecnica.com.br`**
+4. Clique em **"Registrar"**
+5. Informe CPF/CNPJ e complete o pagamento
+
+> ⚠️ Após registrar, **volte aqui** para configurar os nameservers do Cloudflare.
 
 ---
 
-## 2️⃣ ETAPA 2 — Apontar o DNS para o VPS
+## 2️⃣ ETAPA 2 — Apontar o DNS para o Cloudflare
 
-No painel do seu registrador de domínio, crie os registros:
+> 🔔 **Importante:** Este site usa **Cloudflare** para DNS e proteção.
+> Você já adicionou `solucoesdigital.com.br` no Cloudflare, mas vamos usar o novo domínio.
 
-| Tipo | Nome | Valor | TTL |
-|------|------|-------|-----|
-| A | `@` | `IP_DO_SEU_VPS` | 3600 |
-| A | `www` | `IP_DO_SEU_VPS` | 3600 |
+### ✅ Configurar no Registro.br (após registrar)
+
+1. Acesse [registro.br](https://registro.br) → **Meus Domínios**
+2. Clique em **`3eeletrotecnica.com.br`** → **Alterar DNS**
+3. Selecione **"Usar DNS externo"** e insira os nameservers do Cloudflare:
+
+| Nameserver |
+|------------|
+| `dave.ns.cloudflare.com` |
+| `jocelyn.ns.cloudflare.com` |
+
+> 💡 Os NS exatos do Cloudflare aparecem no painel do Cloudflare quando você adicionar o domínio lá.
+
+### ✅ Adicionar o domínio no Cloudflare
+
+1. Acesse [dash.cloudflare.com](https://dash.cloudflare.com)
+2. Clique em **"Add a Site"**
+3. Digite `3eeletrotecnica.com.br`
+4. Escolha o plano **Gratuito (Free)**
+5. Copie os nameservers que o Cloudflare exibir
+6. Cole esses NS no Registro.br (passo anterior)
+
+### ✅ Criar registros DNS no Cloudflare
+
+Após adicionar o domínio, crie estes registros:
+
+| Tipo | Nome | Conteúdo | Proxy |
+|------|------|----------|-------|
+| A | `@` | `IP_DO_SEU_VPS` | ✅ (laranja) |
+| A | `www` | `IP_DO_SEU_VPS` | ✅ (laranja) |
 
 > 💡 Substitua `IP_DO_SEU_VPS` pelo IP do servidor onde o EasyPanel está instalado.
-> A propagação do DNS pode levar de 5 minutos até algumas horas.
 
 ---
 
